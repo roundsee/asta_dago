@@ -1,0 +1,36 @@
+[07:24:16] [INFO]: Query
+[07:24:16] [INFO]: SELECT DISTINCT d.kd_brg FROM 
+                                                                                     jualdetil d 
+                                                                                    where d.tanggal between '2026-01-14' AND '2025-12-30'
+[07:26:01] [INFO]: Query
+[07:26:01] [INFO]: SELECT DISTINCT d.kd_brg FROM 
+                                                                                     jualdetil d 
+                                                                                    where d.tanggal between '2025-12-24' AND '2026-01-20'
+[07:27:22] [INFO]: Query
+[07:27:22] [INFO]: SELECT DISTINCT d.kd_brg FROM 
+                                                                                     jualdetil d 
+                                                                                    where d.tanggal between '2025-12-24' AND '2026-01-20'
+[07:30:27] [INFO]: Query
+[07:30:27] [INFO]: SELECT DISTINCT d.kd_brg FROM 
+                                                                                     jualdetil d 
+                                                                                    where d.tanggal between '2025-12-24' AND '2026-01-20'
+[07:31:51] [INFO]: Query
+[07:31:51] [INFO]: SELECT DISTINCT d.kd_brg FROM 
+                                                                                     jualdetil d 
+                                                                                    where d.tanggal between '2025-12-24' AND '2026-01-20'
+[07:33:24] [INFO]: Query
+[07:33:24] [INFO]: SELECT DISTINCT d.kd_brg FROM 
+                                                                                     jualdetil d 
+                                                                                    where d.tanggal between '2025-12-24' AND '2026-01-20'
+[07:35:12] [INFO]: Query
+[07:35:12] [INFO]: SELECT DISTINCT d.kd_brg FROM 
+                                                                                     jualdetil d 
+                                                                                    where d.tanggal between '2025-12-24' AND '2026-01-20'
+[07:36:51] [INFO]: Query
+[07:36:51] [INFO]: SELECT DISTINCT d.kd_brg FROM 
+                                                                                     jualdetil d 
+                                                                                    where d.tanggal between '2025-12-24' AND '2026-01-20'
+[07:55:10] [INFO]: Query
+[07:55:10] [INFO]: SELECT DISTINCT d.kd_brg FROM 
+                                                                                     jualdetil d 
+                                                                                    where d.tanggal between '2025-12-24' AND '2026-01-20'
