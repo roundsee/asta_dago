@@ -820,10 +820,10 @@ echo "ACT" . $act;
                                                                             // Query untuk menghitung total, rata-rata, dan tertinggi per minggu
                                                                             $query_per_minggu = "
                                                                                 SELECT 
-                                                                                    SUM(CASE WHEN tanggal BETWEEN '$week1_start' AND '$week1_end' THEN banyak * qty_satuan ELSE 0 END) AS total_minggu_I,
-                                                                                    SUM(CASE WHEN tanggal BETWEEN '$week2_start' AND '$week2_end' THEN banyak * qty_satuan  ELSE 0 END) AS total_minggu_II,
-                                                                                    SUM(CASE WHEN tanggal BETWEEN '$week3_start' AND '$week3_end' THEN banyak * qty_satuan ELSE 0 END) AS total_minggu_III,
-                                                                                    SUM(CASE WHEN tanggal BETWEEN '$week4_start' AND '$week4_end' THEN banyak * qty_satuan ELSE 0 END) AS total_minggu_IV
+                                                                                    sum(case when tanggal >= '$week1_start' and tanggal < DATE_ADD('$week1_end', INTERVAL 1 DAY) then banyak * qty_satuan else 0 end) as total_minggu_I,
+                                                                                    sum(case when tanggal >= '$week2_start' and tanggal < DATE_ADD('$week2_end', INTERVAL 1 DAY) then banyak * qty_satuan else 0 end) as total_minggu_II,
+                                                                                    sum(case when tanggal >= '$week3_start' and tanggal < DATE_ADD('$week3_end', INTERVAL 1 DAY) then banyak * qty_satuan else 0 end) as total_minggu_III,
+                                                                                    sum(case when tanggal >= '$week4_start' and tanggal < DATE_ADD('$week4_end', INTERVAL 1 DAY) then banyak * qty_satuan else 0 end) as total_minggu_VI
                                                                                 FROM 
                                                                                     jualdetil
                                                                                 WHERE 

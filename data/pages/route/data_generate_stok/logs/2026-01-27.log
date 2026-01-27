@@ -1,0 +1,4 @@
+[14:29:36] [INFO]: Query
+[14:29:36] [INFO]: SELECT DISTINCT d.kd_brg FROM 
+                                                                                     jualdetil d 
+                                                                                    where d.tanggal between '2025-12-30' AND '2026-01-26'
