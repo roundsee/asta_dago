@@ -56,7 +56,7 @@ if (isset($_GET['act'])) {
 }
 echo "ACT" . $act;
     switch ($_GET['act']) {
-        //Tampil Data 
+        //Tampil Data
         default:
 ?>
             <!-- Content Wrapper. Contains page content -->
@@ -248,7 +248,7 @@ echo "ACT" . $act;
                                                                                                             <?php
                                                                                                             $no = 1;
                                                                                                             $data = mysqli_query($koneksi, "SELECT kd_perusahaan,nama_perusahaan
-                                                                                                                                            FROM perusahaan WHERE kd_perusahaan !='P000'                                                                                                                
+                                                                                                                                            FROM perusahaan WHERE kd_perusahaan !='P000'
                                                                                                                                             ORDER BY kd_perusahaan ASC;
                                                                                                                                             ");
                                                                                                             while ($d = mysqli_fetch_array($data)) {
@@ -544,14 +544,14 @@ echo "ACT" . $act;
 
                                                                             // Query untuk menghitung total, rata-rata, dan tertinggi per minggu
                                                                             $query_per_minggu = "
-                                                                                SELECT 
+                                                                                SELECT
                                                                                      SUM(CASE WHEN tanggal BETWEEN '$week1_start' AND '$week1_end' THEN banyak * qty_satuan ELSE 0 END) AS total_minggu_I,
                                                                                     SUM(CASE WHEN tanggal BETWEEN '$week2_start' AND '$week2_end' THEN banyak * qty_satuan  ELSE 0 END) AS total_minggu_II,
                                                                                     SUM(CASE WHEN tanggal BETWEEN '$week3_start' AND '$week3_end' THEN banyak * qty_satuan ELSE 0 END) AS total_minggu_III,
                                                                                     SUM(CASE WHEN tanggal BETWEEN '$week4_start' AND '$week4_end' THEN banyak * qty_satuan ELSE 0 END) AS total_minggu_IV
-                                                                                FROM 
+                                                                                FROM
                                                                                     jualdetil
-                                                                                WHERE 
+                                                                                WHERE
                                                                                     kd_brg = '$kd_brg'
                                                                                     AND tanggal BETWEEN '$week1_start' AND '$end_date'
                                                                                 ";
@@ -784,20 +784,20 @@ echo "ACT" . $act;
                                                                             // $end_date = $week4_end;
 
                                                                             $today =date("Y-m-d");
-                                                                             $week4_start = date('Y-m-d', strtotime($today . ' - 7 days')); 
-                                                                             $week4_end = date('Y-m-d', strtotime($today . ' - 1 days')); 
-                                                                             $week3_start = date('Y-m-d', strtotime($today . ' - 14 days')); 
-                                                                             $week3_end = date('Y-m-d', strtotime($today . ' - 8 days')); 
-                                                                             $week2_start = date('Y-m-d', strtotime($today . ' - 21 days')); 
-                                                                             $week2_end = date('Y-m-d', strtotime($today . ' - 15 days')); 
-                                                                             $week1_start = date('Y-m-d', strtotime($today . ' - 28 days')); 
-                                                                             $week1_end = date('Y-m-d', strtotime($today . ' - 22 days')); 
+                                                                             $week4_start = date('Y-m-d', strtotime($today . ' - 7 days'));
+                                                                             $week4_end = date('Y-m-d', strtotime($today . ' - 1 days'));
+                                                                             $week3_start = date('Y-m-d', strtotime($today . ' - 14 days'));
+                                                                             $week3_end = date('Y-m-d', strtotime($today . ' - 8 days'));
+                                                                             $week2_start = date('Y-m-d', strtotime($today . ' - 21 days'));
+                                                                             $week2_end = date('Y-m-d', strtotime($today . ' - 15 days'));
+                                                                             $week1_start = date('Y-m-d', strtotime($today . ' - 28 days'));
+                                                                             $week1_end = date('Y-m-d', strtotime($today . ' - 22 days'));
 
 
-                                                                    $query_kd_brg = "SELECT DISTINCT d.kd_brg FROM 
-                                                                                     jualdetil d 
-                                                                                    where d.tanggal between '$week1_start' AND '$week4_end'";
-                                                                    write_log("Query");                
+                                                                    $query_kd_brg = "SELECT DISTINCT d.kd_brg FROM
+                                                                                     jualdetil d
+                                                                                    where d.tanggal >= '$week1_start' AND tanggal < DATE_ADD('$week4_end', INTERVAL 1 DAY)";
+                                                                    write_log("Query");
                                                                     write_log($query_kd_brg);
 
                                                                     $result_kd_brg = mysqli_query($koneksi, $query_kd_brg);
@@ -819,14 +819,14 @@ echo "ACT" . $act;
 
                                                                             // Query untuk menghitung total, rata-rata, dan tertinggi per minggu
                                                                             $query_per_minggu = "
-                                                                                SELECT 
+                                                                                SELECT
                                                                                     sum(case when tanggal >= '$week1_start' and tanggal < DATE_ADD('$week1_end', INTERVAL 1 DAY) then banyak * qty_satuan else 0 end) as total_minggu_I,
                                                                                     sum(case when tanggal >= '$week2_start' and tanggal < DATE_ADD('$week2_end', INTERVAL 1 DAY) then banyak * qty_satuan else 0 end) as total_minggu_II,
                                                                                     sum(case when tanggal >= '$week3_start' and tanggal < DATE_ADD('$week3_end', INTERVAL 1 DAY) then banyak * qty_satuan else 0 end) as total_minggu_III,
                                                                                     sum(case when tanggal >= '$week4_start' and tanggal < DATE_ADD('$week4_end', INTERVAL 1 DAY) then banyak * qty_satuan else 0 end) as total_minggu_VI
-                                                                                FROM 
+                                                                                FROM
                                                                                     jualdetil
-                                                                                WHERE 
+                                                                                WHERE
                                                                                     kd_brg = '$kd_brg'
                                                                                     AND tanggal BETWEEN '$week1_start' AND '$week4_end'
                                                                                 ";
@@ -908,7 +908,7 @@ echo "ACT" . $act;
                                                                             // Hitung Qty Order dan Qty Order Max Jual
                                                                             // $qty_order = $max_rata_per_minggu * $waktu_kirim_supplier;
                                                                             //$qty_order = ((7 * $max_rata_per_minggu) + ($waktu_kirim_barang * $max_rata_per_minggu)) - $perhitungan_stok_akhir;
-                                                                            
+
 
 
 
@@ -929,7 +929,7 @@ echo "ACT" . $act;
                                                                                     $qty_order = $kekuranganstock;
                                                                                 }
                                                                             }
-                                                                            
+
 
 
 
@@ -1066,7 +1066,7 @@ echo "ACT" . $act;
                                                                             // echo '</pre>';
 
                                                                             /*
-                                                                            
+
                                                                             Tanggal Minggu I: Dari 2024-09-30 sampai 2024-10-06
                                                                             Tanggal Minggu II: Dari 2024-10-07 sampai 2024-10-13
                                                                             Tanggal Minggu III: Dari 2024-10-14 sampai 2024-10-20
@@ -1080,14 +1080,14 @@ echo "ACT" . $act;
 
                                                                             // Query untuk menghitung total, rata-rata, dan tertinggi per minggu
                                                                             $query_per_minggu = "
-                                                                                SELECT 
+                                                                                SELECT
                                                                                     SUM(CASE WHEN tanggal BETWEEN '$week1_start' AND '$week1_end' THEN banyak * qty_satuan ELSE 0 END) AS total_minggu_I,
                                                                                     SUM(CASE WHEN tanggal BETWEEN '$week2_start' AND '$week2_end' THEN banyak * qty_satuan  ELSE 0 END) AS total_minggu_II,
                                                                                     SUM(CASE WHEN tanggal BETWEEN '$week3_start' AND '$week3_end' THEN banyak * qty_satuan ELSE 0 END) AS total_minggu_III,
                                                                                     SUM(CASE WHEN tanggal BETWEEN '$week4_start' AND '$week4_end' THEN banyak * qty_satuan ELSE 0 END) AS total_minggu_IV
-                                                                                FROM 
+                                                                                FROM
                                                                                     jualdetil
-                                                                                WHERE 
+                                                                                WHERE
                                                                                     kd_brg = '$kd_brg'
                                                                                     AND tanggal BETWEEN '$week1_start' AND '$end_date'
                                                                                 ";
